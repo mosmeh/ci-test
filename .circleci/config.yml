@@ -1,8 +1,21 @@
-version: 2
-jobs:
+version: 2.1
+
+workflows:
   build:
+    jobs:
+      - build-gcc74
+      - build-gcc93
+
+jobs:
+  build-gcc74:
     docker:
-      - image: gcc:8.2
+      - image: gcc:7.4
+    steps:
+      - checkout
+      - run: make
+  build-gcc93:
+    docker:
+      - image: gcc:9.3
     steps:
       - checkout
       - run: make
