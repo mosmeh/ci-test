@@ -1,0 +1,18 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [g++-7, clang++-6.0]
+    env:
+      CXX: ${{ matrix.compiler }}
+    steps:
+    - uses: actions/checkout@v2
+    - run: $CXX --version
+    - run: make
+    - run: ./a

@@ -1,4 +1,4 @@
 all: a
 
-a: a.c
-	$(CC) $(CFLAGS) $^ -o $@
+a: a.cpp
+	$(CXX) $(CXXFLAGS) $^ -o $@
