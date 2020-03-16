@@ -1,6 +1,9 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Hello, world!" << std::endl;
+    bool f = true;
+    if (f) {
+        std::cout << "Hello, world!" << std::endl;
+    }
     return 0;
 }
