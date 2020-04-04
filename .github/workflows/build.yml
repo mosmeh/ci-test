@@ -3,6 +3,14 @@ name: build
 on: [push, pull_request]
 
 jobs:
+  list-compilers:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-16.04, ubuntu-18.04]
+    steps:
+    - run: dpkg --list | grep compiler
   build:
     runs-on: ubuntu-18.04
     strategy:
